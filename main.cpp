@@ -43,8 +43,11 @@ Password Manager - Secure Password Storage
     - Future versions may include a GUI and cloud synchronization.
 */
 
+#include "ui.hpp"
 #include <iostream>
 
 int main(int argc, char *argv[]) {
-    std::cout << "This will become a password manager application!" << std::endl;
+    UI ui;
+    ui.displayWelcomeMessage();
+
 }
