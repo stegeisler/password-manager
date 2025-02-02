@@ -36,3 +36,4 @@
 *lock*
 cmake-build-debug/
 *.odt
+Testing/
