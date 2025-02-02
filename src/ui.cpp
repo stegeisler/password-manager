@@ -7,5 +7,5 @@ CLI-based interface for Password Manager
 
 // Display message when starting Password Manager application
 void UI::displayWelcomeMessage() const {
-    std::cout << "Welcome to Password Manager!\n";
+    std::cout << "Welcome to the Password Manager!\n";
 }
