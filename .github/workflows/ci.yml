@@ -1,5 +1,7 @@
 name: CI - Build & Test
 
+# Runs when you push to main or develop branches
+# or when you open a pull request to main or develop
 on:
   push:
     branches: [main, develop]
@@ -8,21 +10,26 @@ on:
 
 jobs:
   build-and-test:
+    # Uses Ubuntu as the build environment
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # Installs dependencies (CMake, GCC, Ninja)
       - name: Install dependencies
         run: sudo apt-get update && sudo apt-get install -y cmake g++ ninja-build
 
+      # Configures the project with CMake
       - name: Set up CMake
         run: cmake -S . -B build -G Ninja
 
+      # Builds the project using Ninja
       - name: Build project
         run: cmake --build build
 
+      # Runs Google Tests using ctest
       - name: Run Tests
         run: ctest --test-dir build --output-on-failure
 
