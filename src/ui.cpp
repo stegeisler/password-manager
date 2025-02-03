@@ -24,3 +24,11 @@ void UI::displayMenu() const {
 void UI::displayErrorMessage(const std::string& error) const {
     std::cerr << "\nError: " << error << "\n";
 }
+
+// Get the master password from the user
+std::string UI::getMasterPassword() const {
+    std::string masterPassword;
+    std::cout << "Enter your master password: ";
+    std::cin >> masterPassword;
+    return masterPassword;
+}
