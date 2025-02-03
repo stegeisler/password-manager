@@ -70,3 +70,24 @@ TEST(UITest, DisplayErrorMessage) {
     // Compare captured output
     EXPECT_EQ(errorOutput.str(), expected);
 }
+
+// Test UI get master password function
+TEST(UITest, ReadMasterPassword) {
+    UI ui;
+
+    // Simulated user input
+    std::istringstream input("secure123\n");
+
+    // Redirect std::cin
+    std::streambuf* oldCin = std::cin.rdbuf(input.rdbuf());
+
+    // Get simulated master password
+    std::string password = ui.getMasterPassword();
+
+    // Restore std::cin
+    std::cin.rdbuf(oldCin);
+
+    // Check if the function returned the correct password
+    std::string expected = "secure123";
+    EXPECT_EQ(password, expected);
+}
