@@ -6,7 +6,7 @@
 // Test UI welcome message function
 TEST(UITest, WelcomeMessage) {
     UI ui;
-    const std::string expected = "Welcome to the Password Manager!\n";
+    const std::string expected = "Welcome to the Password Manager!\nPlease enter your master password to continue.\n";
 
     // Redirect cout to output
     std::ostringstream output;
