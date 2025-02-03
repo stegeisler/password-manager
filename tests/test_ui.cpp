@@ -24,6 +24,7 @@ TEST(UITest, WelcomeMessage) {
     EXPECT_EQ(output.str(), expected);
 }
 
+// Test UI display menu function
 TEST(UITest, DisplayMenu) {
     UI ui;
 
@@ -47,4 +48,25 @@ TEST(UITest, DisplayMenu) {
 
     // Compare captured output with expected output
     EXPECT_EQ(output.str(), expected);
+}
+
+// Test UI display error message function
+TEST(UITest, DisplayErrorMessage) {
+    UI ui;
+    const std::string expected =
+        "\nError: Some error occurred.\n";
+
+    // Redirect cerr to output
+    std::ostringstream errorOutput;
+    std::streambuf* oldCerr = std::cerr.rdbuf(errorOutput.rdbuf());
+
+    // Capture the printed output
+    const std::string errorMessage = "Some error occurred.";
+    ui.displayErrorMessage(errorMessage);
+
+    // Restore original cout
+    std::cerr.rdbuf(oldCerr);
+
+    // Compare captured output
+    EXPECT_EQ(errorOutput.str(), expected);
 }
