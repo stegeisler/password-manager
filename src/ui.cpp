@@ -19,3 +19,8 @@ void UI::displayMenu() const {
     std::cout << "3. Exit\n";
     std::cout << "Please select an option: ";
 }
+
+// Display an error message
+void UI::displayErrorMessage(const std::string& error) const {
+    std::cerr << "\nError: " << error << "\n";
+}
