@@ -6,7 +6,7 @@
 // Test UI welcome message function
 TEST(UITest, WelcomeMessage) {
     UI ui;
-    const std::string expected = "Welcome to the Password Manager!";
+    const std::string expected = "Welcome to the Password Manager!\n";
 
     // Redirect cout to output
     std::ostringstream output;
@@ -19,5 +19,5 @@ TEST(UITest, WelcomeMessage) {
     std::cout.rdbuf(oldCout);
 
     // Compare captured output
-    EXPECT_EQ(output.str(), "Welcome to the Password Manager!\n");
+    EXPECT_EQ(output.str(), expected);
 }
