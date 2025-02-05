@@ -6,6 +6,18 @@ CLI-based interface for Password Manager
 #define UI_HPP
 
 #include <string>
+#include <optional>
+#include <vector>
+#include <sstream>
+
+// Why PasswordEntry is struct and not class? Simplistic data holder, no access control.
+struct PasswordEntry {
+    std::string site;
+    std::string username;
+    std::string password;
+    std::optional<std::string> notes;  // Optional field for additional information
+    std::vector<std::string> tags;  // Optional field to categorize the password entry
+};
 
 class UI {
 public:
@@ -19,7 +31,7 @@ public:
 
     // User input functions
     std::string getMasterPassword() const;  // Prompts the user for the master password to authenticate.
-    std::string getPasswordEntry() const;  // Collects the site, username, and password to be stored.
+    PasswordEntry getPasswordEntry() const;  // Collects the site, username, and password to be stored.
     void displaySuccessMessage(const std::string& message) const; // Displays a success message after a successful action.
 
 private:
