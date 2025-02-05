@@ -76,3 +76,7 @@ PasswordEntry UI::getPasswordEntry() const {
     // Return the filled PasswordEntry struct
     return PasswordEntry{site, username, password, notes, tags};
 }
+
+void UI::displaySuccessMessage(const std::string &message) const {
+    std::cout << "\nSuccess: " << message << "\n";
+}
