@@ -92,6 +92,9 @@ TEST(UITest, ReadMasterPassword) {
     EXPECT_EQ(password, expected);
 }
 
+// TODO: Make all test that read from std::cin use UIUserInputTestFixture class
+// TODO: Write similar class as UIUserInputTestFixture for tests that write to std::cout
+
 // Provides a common setup and teardown mechanism for multiple test cases
 // Use public inheritance, because Google Test requires SetUp() and TearDown() to be public
 class UIUserInputTestFixture : public ::testing::Test {
