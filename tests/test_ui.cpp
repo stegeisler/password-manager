@@ -64,7 +64,7 @@ TEST(UITest, DisplayErrorMessage) {
     const std::string errorMessage = "Some error occurred.";
     ui.displayErrorMessage(errorMessage);
 
-    // Restore original cout
+    // Restore original cerr
     std::cerr.rdbuf(oldCerr);
 
     // Compare captured output
@@ -204,4 +204,25 @@ TEST_F(UIUserInputTestFixture, GetPasswordEntry_EmptyFields) {
     EXPECT_EQ(entry.password, "");
     EXPECT_FALSE(entry.notes.has_value());
     EXPECT_TRUE(entry.tags.empty());
+}
+
+// Test UI display success message function
+TEST(UITest, DisplaySuccessMessage) {
+    UI ui;
+    const std::string expected =
+        "\nSuccess: Action was successful.\n";
+
+    // Redirect cout to output
+    std::ostringstream output;
+    std::streambuf* oldCout = std::cout.rdbuf(output.rdbuf());
+
+    // Capture the printed output
+    const std::string message = "Action was successful.";
+    ui.displaySuccessMessage(message);
+
+    // Restore original cout
+    std::cout.rdbuf(oldCout);
+
+    // Compare captured output
+    EXPECT_EQ(output.str(), expected);
 }
