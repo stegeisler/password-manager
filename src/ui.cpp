@@ -5,6 +5,7 @@ CLI-based interface for Password Manager
 #include "ui.hpp"
 #include <iostream>
 #include <optional>
+#include <cstdlib>
 
 // Display message when starting Password Manager application
 void UI::displayWelcomeMessage() const {
@@ -34,6 +35,7 @@ std::string UI::getMasterPassword() const {
     return masterPassword;
 }
 
+// Collects the site, username, password and optional notes and tags to be stored
 PasswordEntry UI::getPasswordEntry() const {
     std::string site, username, password;
     std::optional<std::string> notes;
@@ -77,6 +79,24 @@ PasswordEntry UI::getPasswordEntry() const {
     return PasswordEntry{site, username, password, notes, tags};
 }
 
+// Displays a success message after a successful action
 void UI::displaySuccessMessage(const std::string &message) const {
     std::cout << "\nSuccess: " << message << "\n";
+}
+
+// Clear the terminal screen (platform-dependent)
+void UI::clearScreen() const {
+#if defined(_WIN32)
+    // Program is running on Windows
+    system("cls");
+#else
+    // Program is running on Linux/macOS/Unix-like systems
+    system("clear");
+#endif
+}
+
+// Wait for the user to press any key before continuing
+void UI::waitForUserInput() const {
+    std::cout << "\nPress Enter to continue...";
+    std::cin.ignore();
 }
