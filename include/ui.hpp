@@ -31,7 +31,7 @@ public:
 
     // User input functions
     std::string getMasterPassword() const;  // Prompts the user for the master password to authenticate.
-    PasswordEntry getPasswordEntry() const;  // Collects the site, username, and password to be stored.
+    PasswordEntry getPasswordEntry() const;  // Collects the site, username, password and optional notes and tags to be stored.
     void displaySuccessMessage(const std::string& message) const; // Displays a success message after a successful action.
 
 private:
