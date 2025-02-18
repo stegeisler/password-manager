@@ -13,10 +13,11 @@ void UI::start() {
     std::string masterPassword = getMasterPassword();
 
     bool running = true;
+    int choice = -1;
     while (running) {
         displayMenu();
 
-        int choice = -1;
+
         // Read user choice from input
         std::cin >> choice;
         // Clear input buffer, prevent unwanted leftover input from interfering with later
@@ -26,13 +27,25 @@ void UI::start() {
         switch (choice) {
             case 1:
                 // TODO: Handle case to add new password
-                std::cout << "Add a new password.\n";
+                std::cout << "Adding a new password.\n";
                 break;
             case 2:
                 // TODO: Handle case to view a saved password
-                std::cout << "View a saved password.\n";
+                std::cout << "Viewing a saved password.\n";
                 break;
             case 3:
+                // TODO: Handle case to list all password entries
+                std::cout << "Listing all password entries.\n";
+                break;
+            case 4:
+                // TODO: Handle case to save passwords to file
+                std::cout << "Saving passwords to file.\n";
+                break;
+            case 5:
+                // TODO: Handle case to load passwords from file
+                std::cout << "Loading passwords from file.\n";
+                break;
+            case 6:
                 // Exit program
                 std::cout << "Exiting program.\n";
                 running = false;
