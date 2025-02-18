@@ -54,7 +54,10 @@ void UI::displayMenu() const {
     std::cout << "\nMenu:\n";
     std::cout << "1. Add a new password\n";
     std::cout << "2. View a saved password\n";
-    std::cout << "3. Exit\n";
+    std::cout << "3. List all stored entries\n";
+    std::cout << "4. Save passwords to file\n";
+    std::cout << "5. Load passwords from file\n";
+    std::cout << "6. Exit\n";
     std::cout << "Please select an option: ";
 }
 
