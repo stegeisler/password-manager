@@ -33,7 +33,10 @@ TEST(UITest, DisplayMenu) {
         "\nMenu:\n"
         "1. Add a new password\n"
         "2. View a saved password\n"
-        "3. Exit\n"
+        "3. List all stored entries\n"
+        "4. Save passwords to file\n"
+        "5. Load passwords from file\n"
+        "6. Exit\n"
         "Please select an option: ";
 
     // Redirect std::cout to a string stream
