@@ -4,8 +4,44 @@ CLI-based interface for Password Manager
 
 #include "ui.hpp"
 #include <iostream>
-#include <optional>
 #include <cstdlib>
+#include <limits>   // For clearing input buffer when reading user input
+
+// Start the UI loop
+void UI::start() {
+    displayWelcomeMessage();
+    std::string masterPassword = getMasterPassword();
+
+    bool running = true;
+    while (running) {
+        displayMenu();
+
+        int choice = -1;
+        // Read user choice from input
+        std::cin >> choice;
+        // Clear input buffer, prevent unwanted leftover input from interfering with later
+        // input requests
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+        switch (choice) {
+            case 1:
+                // TODO: Handle case to add new password
+                std::cout << "Add a new password.\n";
+                break;
+            case 2:
+                // TODO: Handle case to view a saved password
+                std::cout << "View a saved password.\n";
+                break;
+            case 3:
+                // Exit program
+                std::cout << "Exiting program.\n";
+                running = false;
+                break;
+            default:
+                displayErrorMessage("Invalid action. Please try again.");
+        }
+    }
+}
 
 // Display message when starting Password Manager application
 void UI::displayWelcomeMessage() const {
