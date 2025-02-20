@@ -13,16 +13,8 @@ void UI::start() {
     std::string masterPassword = getMasterPassword();
 
     bool running = true;
-    int choice = -1;
     while (running) {
         displayMenu();
-
-
-        // Read user choice from input
-        std::cin >> choice;
-        // Clear input buffer, prevent unwanted leftover input from interfering with later
-        // input requests
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
         switch (choice) {
             case 1:
@@ -129,6 +121,20 @@ PasswordEntry UI::getPasswordEntry() const {
 
     // Return the filled PasswordEntry struct
     return PasswordEntry{site, username, password, notes, tags};
+}
+
+// Reads the user's menu choice from input and returns the it
+int UI::getUserMenuChoice() const {
+    int choice = -1;
+
+    // Read user choice from input
+    std::cin >> choice;
+
+    // Clear input buffer, prevent unwanted leftover input from interfering with later
+    // input requests
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    return choice;
 }
 
 // Displays a success message after a successful action
