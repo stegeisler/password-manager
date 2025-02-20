@@ -213,19 +213,19 @@ TEST_F(UIUserInputTestFixture, GetPasswordEntry_EmptyFields) {
     EXPECT_TRUE(entry.tags.empty());
 }
 
-// Test UI display success message function
-TEST(UITest, DisplaySuccessMessage) {
+// Test UI display message function
+TEST(UITest, DisplayMessage) {
     UI ui;
     const std::string expected =
-        "\nSuccess: Action was successful.\n";
+        "\nThis is a message.\n";
 
     // Redirect cout to output
     std::ostringstream output;
     std::streambuf* oldCout = std::cout.rdbuf(output.rdbuf());
 
     // Capture the printed output
-    const std::string message = "Action was successful.";
-    ui.displaySuccessMessage(message);
+    const std::string message = "This is a message.";
+    ui.displayMessage(message);
 
     // Restore original cout
     std::cout.rdbuf(oldCout);

@@ -18,7 +18,7 @@ public:
     void displayWelcomeMessage() const;  // Displays a welcome message when the application starts.
     void displayMenu() const;            // Displays the main menu options to the user (e.g., Add Password, View Password, Exit).
     void displayErrorMessage(const std::string& error) const;  // Displays an error message (for invalid input or system issues).
-    void displaySuccessMessage(const std::string &message) const;   // Displays a success message after a successful action
+    void displayMessage(const std::string &message) const;   // Displays a message in UI
 
     // User input functions
     std::string getMasterPassword() const;  // Prompts the user for the master password to authenticate.

@@ -144,8 +144,8 @@ int UI::getUserMenuChoice() const {
 }
 
 // Displays a success message after a successful action
-void UI::displaySuccessMessage(const std::string &message) const {
-    std::cout << "\nSuccess: " << message << "\n";
+void UI::displayMessage(const std::string &message) const {
+    std::cout << "\n" << message << "\n";
 }
 
 // Clear the terminal screen (platform-dependent)
