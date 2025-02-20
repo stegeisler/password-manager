@@ -137,7 +137,7 @@ protected:
     }
 };
 
-// Test case 1: Basic input handling (notes and tags are empty)
+// Test getPasswordEntry test case 1: Basic input handling (notes and tags are empty)
 TEST_F(UIUserInputTestFixture, GetPasswordEntry_BasicInput) {
     simulateInput("example.com\nuser123\nmypassword\n\n\n");
 
@@ -150,7 +150,7 @@ TEST_F(UIUserInputTestFixture, GetPasswordEntry_BasicInput) {
     EXPECT_TRUE(entry.tags.empty());        // No tags entered
 }
 
-// Test case 2: User enters notes
+// Test getPasswordEntry test case 2: User enters notes
 TEST_F(UIUserInputTestFixture, GetPasswordEntry_WithNotes) {
     simulateInput("example.com\nuser123\nmypassword\nMy secret note\n\n");
 
@@ -164,7 +164,7 @@ TEST_F(UIUserInputTestFixture, GetPasswordEntry_WithNotes) {
     EXPECT_TRUE(entry.tags.empty());
 }
 
-// Test case 3: User enters multiple tags
+// Test getPasswordEntry test case 3: User enters multiple tags
 TEST_F(UIUserInputTestFixture, GetPasswordEntry_WithTags) {
     simulateInput("example.com\nuser123\nmypassword\n\nwork,personal,finance\n");
 
@@ -180,7 +180,7 @@ TEST_F(UIUserInputTestFixture, GetPasswordEntry_WithTags) {
     EXPECT_EQ(entry.tags[2], "finance");
 }
 
-// Test case 4: User provides notes and tags
+// Test getPasswordEntry test case 4: User provides notes and tags
 TEST_F(UIUserInputTestFixture, GetPasswordEntry_WithNotesAndTags) {
     simulateInput("example.com\nuser123\nmypassword\nImportant account\nwork,security\n");
 
@@ -196,7 +196,7 @@ TEST_F(UIUserInputTestFixture, GetPasswordEntry_WithNotesAndTags) {
     EXPECT_EQ(entry.tags[1], "security");
 }
 
-// Test case 5: User provides empty input fields
+// Test getPasswordEntry test case 5: User provides empty input fields
 TEST_F(UIUserInputTestFixture, GetPasswordEntry_EmptyFields) {
     simulateInput("\n\n\n\n\n");
 
@@ -229,3 +229,4 @@ TEST(UITest, DisplaySuccessMessage) {
     // Compare captured output
     EXPECT_EQ(output.str(), expected);
 }
+
