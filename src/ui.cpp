@@ -11,7 +11,7 @@ CLI-based interface for Password Manager
 void UI::start() {
     displayWelcomeMessage();
     std::string masterPassword = getMasterPassword();
-
+    int choice = -1;
     bool running = true;
     while (running) {
         displayMenu();
@@ -129,6 +129,12 @@ int UI::getUserMenuChoice() const {
 
     // Read user choice from input
     std::cin >> choice;
+
+    // Check if input was not a valid integer
+    if (std::cin.fail()) {
+        // Clear the error flag for subsequent calls to getUserMenuChoice
+        std::cin.clear();
+    }
 
     // Clear input buffer, prevent unwanted leftover input from interfering with later
     // input requests
