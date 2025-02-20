@@ -125,7 +125,7 @@ PasswordEntry UI::getPasswordEntry() const {
 
 // Reads the user's menu choice from input and returns the it
 int UI::getUserMenuChoice() const {
-    int choice = -1;
+    int choice = 0;
 
     // Read user choice from input
     std::cin >> choice;
