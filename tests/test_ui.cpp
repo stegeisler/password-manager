@@ -137,6 +137,10 @@ protected:
     }
 };
 
+/*
+ * Test function getPasswordEntry()
+ */
+
 // Test getPasswordEntry test case 1: Basic input handling (notes and tags are empty)
 TEST_F(UIUserInputTestFixture, GetPasswordEntry_BasicInput) {
     simulateInput("example.com\nuser123\nmypassword\n\n\n");
@@ -230,3 +234,37 @@ TEST(UITest, DisplaySuccessMessage) {
     EXPECT_EQ(output.str(), expected);
 }
 
+
+/*
+ * Test function getUserMenuChoice()
+ */
+
+// Test getUserMenuChoice test case 1: Valid menu choice input
+TEST_F(UIUserInputTestFixture, ValidMenuChoice) {
+    simulateInput("3\n");  // Simulate user entering 3
+    EXPECT_EQ(ui.getUserMenuChoice(), 3);
+}
+
+// Test getUserMenuChoice test case 2: Input with leading/trailing spaces
+TEST_F(UIUserInputTestFixture, InputWithSpaces) {
+    simulateInput("   2  \n");  // Simulate user entering "   2  "
+    EXPECT_EQ(ui.getUserMenuChoice(), 2);
+}
+
+// Test getUserMenuChoice test case 3: invalid input followed by valid input
+// TEST_F(UIUserInputTestFixture, InvalidThenValidInput) {
+//     simulateInput("abc\n4\n");  // First input is invalid, second is valid
+//     EXPECT_EQ(ui.getUserMenuChoice(), 4);
+// }
+
+// Test getUserMenuChoice test case 4: handling of non-numeric input
+TEST_F(UIUserInputTestFixture, NonNumericInput) {
+    simulateInput("xyz\n");
+    EXPECT_EQ(ui.getUserMenuChoice(), 0);  // Should return 0
+}
+
+// Test getUserMenuChoice test case 5: empty input (user just presses enter)
+TEST_F(UIUserInputTestFixture, EmptyInput) {
+    simulateInput("\n");
+    EXPECT_EQ(ui.getUserMenuChoice(), 0);  // Should return 0
+}
