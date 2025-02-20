@@ -5,19 +5,9 @@ CLI-based interface for Password Manager
 #ifndef UI_HPP
 #define UI_HPP
 
+#include "password_manager.hpp"
 #include <string>
-#include <optional>
-#include <vector>
 #include <sstream>
-
-// Why PasswordEntry is struct and not class? Simplistic data holder, no access control.
-struct PasswordEntry {
-    std::string site;
-    std::string username;
-    std::string password;
-    std::optional<std::string> notes;  // Optional field for additional information
-    std::vector<std::string> tags;  // Optional field to categorize the password entry
-};
 
 class UI {
 public:

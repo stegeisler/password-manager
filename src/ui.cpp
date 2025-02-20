@@ -1,6 +1,6 @@
 /*
 CLI-based interface for Password Manager
-*/
+ */
 
 #include "ui.hpp"
 #include <iostream>
