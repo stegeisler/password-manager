@@ -63,7 +63,7 @@ void UI::displayMenu() const {
     std::cout << "4. Save passwords to file\n";
     std::cout << "5. Load passwords from file\n";
     std::cout << "6. Exit\n";
-    std::cout << "Please select an option: ";
+    std::cout << "Please select an option by pressing the respective number: ";
 }
 
 // Display an error message
