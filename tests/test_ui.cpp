@@ -37,7 +37,7 @@ TEST(UITest, DisplayMenu) {
         "4. Save passwords to file\n"
         "5. Load passwords from file\n"
         "6. Exit\n"
-        "Please select an option: ";
+        "Please select an option by pressing the respective number: ";
 
     // Redirect std::cout to a string stream
     std::ostringstream output;
